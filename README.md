@@ -1,4 +1,4 @@
-# AI Chat Desktop
+# AI Chat Desktop (em desenvolvimento)
 
 Uma aplicação desktop para interagir com modelos de linguagem como Claude AI e DeepSeek, construída com Electron e React.
 
