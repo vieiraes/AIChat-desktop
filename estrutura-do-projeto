@@ -1,0 +1,18 @@
+electron-chat-app/
+├── src/
+│   ├── assets/
+│   │   ├── icon.ico
+│   │   └── icon.png
+│   ├── main/
+│   │   └── main.js
+│   ├── renderer/
+│   │   ├── components/
+│   │   │   ├── Sidebar.jsx
+│   │   │   ├── ChatArea.jsx
+│   │   │   └── ModelConfig.jsx
+│   │   ├── App.jsx
+│   │   └── index.html
+│   └── styles/
+│       └── main.css
+├── package.json
+└── .gitignore 

@@ -1,0 +1,80 @@
+{
+  "name": "AIChat-desktop",
+  "version": "1.0.0",
+  "main": "src/main/main.js",
+  "homepage": "https://github.com/vieiraes/AIChat-desktop",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vieiraes/AIChat-desktop"
+  },
+  "scripts": {
+    "start": "webpack && electron .",
+    "dev": "NODE_ENV=development webpack --watch --mode=development & wait-on dist/bundle.js && NODE_ENV=development electron . --trace-warnings --enable-logging",
+    "preview:linux": "webpack && electron-builder --dir && electron dist/linux-unpacked/ai-chat-app",
+    "preview:win": "webpack && electron-builder --dir && electron dist/win-unpacked/AI Chat App.exe",
+    "build": "webpack && electron-builder build --win --linux",
+    "build:win": "webpack && electron-builder build --win",
+    "build:linux": "webpack && electron-builder build --linux",
+    "clean": "rimraf dist build .cache .webpack",
+    "clean:all": "npm run clean && rimraf node_modules package-lock.json",
+    "rebuild": "npm run clean:all && npm install && npm run build"
+  },
+  "keywords": [],
+  "author": {
+    "name": "vieiraes",
+    "email": "vieiraes@gmail.com"
+  },
+  "license": "ISC",
+  "description": "AIChat Desktop Application with Claude and DeepSeek integration",
+  "dependencies": {
+    "@electron/remote": "^2.1.2",
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.0",
+    "electron-store": "^8.1.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "build": {
+    "appId": "com.aichat.desktop",
+    "productName": "AIChat Desktop",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "src/**/*",
+      "package.json"
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "icon": "src/assets/icon.ico"
+    },
+    "linux": {
+      "target": [
+        "deb",
+        "AppImage"
+      ],
+      "category": "Development",
+      "icon": "src/assets/icon.png",
+      "maintainer": "vieiraes <vieiraes@gmail.com>"
+    }
+  },
+  "devDependencies": {
+    "@babel/core": "^7.26.7",
+    "@babel/preset-env": "^7.26.7",
+    "@babel/preset-react": "^7.26.3",
+    "babel-loader": "^9.2.1",
+    "electron": "^34.0.1",
+    "electron-builder": "^24.9.1",
+    "rimraf": "^6.0.1",
+    "wait-on": "^8.0.2",
+    "webpack": "^5.97.1",
+    "webpack-cli": "^6.0.1"
+  }
+}
